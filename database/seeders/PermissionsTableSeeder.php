@@ -384,6 +384,26 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 94,
+                'title' => 'payout_create',
+            ],
+            [
+                'id'    => 95,
+                'title' => 'payout_edit',
+            ],
+            [
+                'id'    => 96,
+                'title' => 'payout_show',
+            ],
+            [
+                'id'    => 97,
+                'title' => 'payout_delete',
+            ],
+            [
+                'id'    => 98,
+                'title' => 'payout_access',
+            ],
+            [
+                'id'    => 99,
                 'title' => 'profile_password_edit',
             ],
         ];

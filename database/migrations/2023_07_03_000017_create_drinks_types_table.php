@@ -10,8 +10,8 @@ class CreateDrinksTypesTable extends Migration
     {
         Schema::create('drinks_types', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->decimal('price', 15, 2);
+            $table->string('name')->nullable();
+            $table->decimal('price', 15, 2)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

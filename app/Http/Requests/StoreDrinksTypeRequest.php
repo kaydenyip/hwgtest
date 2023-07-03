@@ -19,10 +19,7 @@ class StoreDrinksTypeRequest extends FormRequest
         return [
             'name' => [
                 'string',
-                'required',
-            ],
-            'price' => [
-                'required',
+                'nullable',
             ],
         ];
     }

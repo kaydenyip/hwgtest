@@ -87,6 +87,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('drinks/destroy', 'DrinksController@massDestroy')->name('drinks.massDestroy');
     Route::resource('drinks', 'DrinksController');
 
+    // Payout
+    Route::delete('payouts/destroy', 'PayoutController@massDestroy')->name('payouts.massDestroy');
+    Route::resource('payouts', 'PayoutController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {

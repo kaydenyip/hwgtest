@@ -4,15 +4,15 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDrinksTable extends Migration
+class CreatePayoutsTable extends Migration
 {
     public function up()
     {
-        Schema::create('drinks', function (Blueprint $table) {
+        Schema::create('payouts', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->decimal('price', 15, 2)->nullable();
-            $table->datetime('completed_at')->nullable();
-            $table->decimal('after_discount', 15, 2)->nullable();
+            $table->string('name')->nullable();
+            $table->decimal('amount', 15, 2)->nullable();
+            $table->datetime('date')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

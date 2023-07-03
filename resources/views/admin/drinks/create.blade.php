@@ -24,18 +24,18 @@
                 <span class="help-block">{{ trans('cruds.drink.fields.barista_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="drinks_types_id">{{ trans('cruds.drink.fields.drinks_types') }}</label>
-                <select class="form-control select2 {{ $errors->has('drinks_types') ? 'is-invalid' : '' }}" name="drinks_types_id" id="drinks_types_id">
-                    @foreach($drinks_types as $id => $entry)
-                        <option value="{{ $id }}" {{ old('drinks_types_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
+                <label for="drink_type_id">{{ trans('cruds.drink.fields.drink_type') }}</label>
+                <select class="form-control select2 {{ $errors->has('drink_type') ? 'is-invalid' : '' }}" name="drink_type_id" id="drink_type_id">
+                    @foreach($drink_types as $id => $entry)
+                        <option value="{{ $id }}" {{ old('drink_type_id') == $id ? 'selected' : '' }}>{{ $entry }}</option>
                     @endforeach
                 </select>
-                @if($errors->has('drinks_types'))
+                @if($errors->has('drink_type'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('drinks_types') }}
+                        {{ $errors->first('drink_type') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.drink.fields.drinks_types_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.drink.fields.drink_type_helper') }}</span>
             </div>
             <div class="form-group">
                 <label for="price">{{ trans('cruds.drink.fields.price') }}</label>
@@ -56,6 +56,16 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.drink.fields.completed_at_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label for="after_discount">{{ trans('cruds.drink.fields.after_discount') }}</label>
+                <input class="form-control {{ $errors->has('after_discount') ? 'is-invalid' : '' }}" type="number" name="after_discount" id="after_discount" value="{{ old('after_discount', '') }}" step="0.01">
+                @if($errors->has('after_discount'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('after_discount') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.drink.fields.after_discount_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

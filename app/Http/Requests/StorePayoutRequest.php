@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\DrinksType;
+use App\Models\Payout;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class UpdateDrinksTypeRequest extends FormRequest
+class StorePayoutRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('drinks_type_edit');
+        return Gate::allows('payout_create');
     }
 
     public function rules()
@@ -19,6 +19,10 @@ class UpdateDrinksTypeRequest extends FormRequest
         return [
             'name' => [
                 'string',
+                'nullable',
+            ],
+            'date' => [
+                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
                 'nullable',
             ],
         ];
