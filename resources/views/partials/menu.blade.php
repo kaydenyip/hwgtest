@@ -211,6 +211,26 @@
                 </a>
             </li>
         @endcan
+        @can('drinks_type_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.drinks-types.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/drinks-types") || request()->is("admin/drinks-types/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.drinksType.title') }}
+                </a>
+            </li>
+        @endcan
+        @can('drink_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.drinks.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/drinks") || request()->is("admin/drinks/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-cogs c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.drink.title') }}
+                </a>
+            </li>
+        @endcan
         <li class="c-sidebar-nav-item">
             <a href="{{ route("admin.systemCalendar") }}" class="c-sidebar-nav-link {{ request()->is("admin/system-calendar") || request()->is("admin/system-calendar/*") ? "c-active" : "" }}">
                 <i class="c-sidebar-nav-icon fa-fw fas fa-calendar">

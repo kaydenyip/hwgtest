@@ -344,6 +344,46 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 84,
+                'title' => 'drinks_type_create',
+            ],
+            [
+                'id'    => 85,
+                'title' => 'drinks_type_edit',
+            ],
+            [
+                'id'    => 86,
+                'title' => 'drinks_type_show',
+            ],
+            [
+                'id'    => 87,
+                'title' => 'drinks_type_delete',
+            ],
+            [
+                'id'    => 88,
+                'title' => 'drinks_type_access',
+            ],
+            [
+                'id'    => 89,
+                'title' => 'drink_create',
+            ],
+            [
+                'id'    => 90,
+                'title' => 'drink_edit',
+            ],
+            [
+                'id'    => 91,
+                'title' => 'drink_show',
+            ],
+            [
+                'id'    => 92,
+                'title' => 'drink_delete',
+            ],
+            [
+                'id'    => 93,
+                'title' => 'drink_access',
+            ],
+            [
+                'id'    => 94,
                 'title' => 'profile_password_edit',
             ],
         ];
