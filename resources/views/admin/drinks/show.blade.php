@@ -33,10 +33,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.drink.fields.drinks_types') }}
+                            {{ trans('cruds.drink.fields.drink_type') }}
                         </th>
                         <td>
-                            {{ $drink->drinks_types->name ?? '' }}
+                            {{ $drink->drink_type->name ?? '' }}
                         </td>
                     </tr>
                     <tr>
@@ -53,6 +53,14 @@
                         </th>
                         <td>
                             {{ $drink->completed_at }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.drink.fields.after_discount') }}
+                        </th>
+                        <td>
+                            {{ $drink->after_discount }}
                         </td>
                     </tr>
                 </tbody>

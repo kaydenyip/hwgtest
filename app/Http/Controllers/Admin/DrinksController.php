@@ -19,7 +19,7 @@ class DrinksController extends Controller
     {
         abort_if(Gate::denies('drink_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $drinks = Drink::with(['barista', 'drinks_types'])->get();
+        $drinks = Drink::with(['barista', 'drink_type'])->get();
 
         return view('admin.drinks.index', compact('drinks'));
     }
@@ -30,9 +30,9 @@ class DrinksController extends Controller
 
         $baristas = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $drinks_types = DrinksType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $drink_types = DrinksType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        return view('admin.drinks.create', compact('baristas', 'drinks_types'));
+        return view('admin.drinks.create', compact('baristas', 'drink_types'));
     }
 
     public function store(StoreDrinkRequest $request)
@@ -48,11 +48,11 @@ class DrinksController extends Controller
 
         $baristas = User::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $drinks_types = DrinksType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
+        $drink_types = DrinksType::pluck('name', 'id')->prepend(trans('global.pleaseSelect'), '');
 
-        $drink->load('barista', 'drinks_types');
+        $drink->load('barista', 'drink_type');
 
-        return view('admin.drinks.edit', compact('baristas', 'drink', 'drinks_types'));
+        return view('admin.drinks.edit', compact('baristas', 'drink', 'drink_types'));
     }
 
     public function update(UpdateDrinkRequest $request, Drink $drink)
@@ -66,7 +66,7 @@ class DrinksController extends Controller
     {
         abort_if(Gate::denies('drink_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $drink->load('barista', 'drinks_types');
+        $drink->load('barista', 'drink_type');
 
         return view('admin.drinks.show', compact('drink'));
     }
