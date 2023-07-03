@@ -79,6 +79,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('appoitments/destroy', 'AppoitmentsController@massDestroy')->name('appoitments.massDestroy');
     Route::resource('appoitments', 'AppoitmentsController');
 
+    // Drinks Types
+    Route::delete('drinks-types/destroy', 'DrinksTypesController@massDestroy')->name('drinks-types.massDestroy');
+    Route::resource('drinks-types', 'DrinksTypesController');
+
+    // Drinks
+    Route::delete('drinks/destroy', 'DrinksController@massDestroy')->name('drinks.massDestroy');
+    Route::resource('drinks', 'DrinksController');
+
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
