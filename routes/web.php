@@ -25,61 +25,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
 
-    // Crm Status
-    Route::delete('crm-statuses/destroy', 'CrmStatusController@massDestroy')->name('crm-statuses.massDestroy');
-    Route::resource('crm-statuses', 'CrmStatusController');
+    // Payouts
+    Route::delete('payouts/destroy', 'PayoutsController@massDestroy')->name('payouts.massDestroy');
+    Route::resource('payouts', 'PayoutsController');
 
-    // Crm Customer
-    Route::delete('crm-customers/destroy', 'CrmCustomerController@massDestroy')->name('crm-customers.massDestroy');
-    Route::resource('crm-customers', 'CrmCustomerController');
+    // Members
+    Route::delete('members/destroy', 'MembersController@massDestroy')->name('members.massDestroy');
+    Route::resource('members', 'MembersController');
 
-    // Crm Note
-    Route::delete('crm-notes/destroy', 'CrmNoteController@massDestroy')->name('crm-notes.massDestroy');
-    Route::resource('crm-notes', 'CrmNoteController');
-
-    // Crm Document
-    Route::delete('crm-documents/destroy', 'CrmDocumentController@massDestroy')->name('crm-documents.massDestroy');
-    Route::post('crm-documents/media', 'CrmDocumentController@storeMedia')->name('crm-documents.storeMedia');
-    Route::post('crm-documents/ckmedia', 'CrmDocumentController@storeCKEditorImages')->name('crm-documents.storeCKEditorImages');
-    Route::resource('crm-documents', 'CrmDocumentController');
-
-    // Expense Category
-    Route::delete('expense-categories/destroy', 'ExpenseCategoryController@massDestroy')->name('expense-categories.massDestroy');
-    Route::resource('expense-categories', 'ExpenseCategoryController');
-
-    // Income Category
-    Route::delete('income-categories/destroy', 'IncomeCategoryController@massDestroy')->name('income-categories.massDestroy');
-    Route::resource('income-categories', 'IncomeCategoryController');
-
-    // Expense
-    Route::delete('expenses/destroy', 'ExpenseController@massDestroy')->name('expenses.massDestroy');
-    Route::resource('expenses', 'ExpenseController');
-
-    // Income
-    Route::delete('incomes/destroy', 'IncomeController@massDestroy')->name('incomes.massDestroy');
-    Route::resource('incomes', 'IncomeController');
-
-    // Expense Report
-    Route::delete('expense-reports/destroy', 'ExpenseReportController@massDestroy')->name('expense-reports.massDestroy');
-    Route::resource('expense-reports', 'ExpenseReportController');
-
-    // Services
-    Route::delete('services/destroy', 'ServicesController@massDestroy')->name('services.massDestroy');
-    Route::resource('services', 'ServicesController');
-
-    // Employees
-    Route::delete('employees/destroy', 'EmployeesController@massDestroy')->name('employees.massDestroy');
-    Route::resource('employees', 'EmployeesController');
-
-    // Clients
-    Route::delete('clients/destroy', 'ClientsController@massDestroy')->name('clients.massDestroy');
-    Route::resource('clients', 'ClientsController');
-
-    // Appoitments
-    Route::delete('appoitments/destroy', 'AppoitmentsController@massDestroy')->name('appoitments.massDestroy');
-    Route::resource('appoitments', 'AppoitmentsController');
-
-    Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
+    // Wallets
+    Route::delete('wallets/destroy', 'WalletsController@massDestroy')->name('wallets.massDestroy');
+    Route::resource('wallets', 'WalletsController');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
     // Change password

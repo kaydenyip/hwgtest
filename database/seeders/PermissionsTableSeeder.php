@@ -76,274 +76,66 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 17,
-                'title' => 'basic_c_r_m_access',
+                'title' => 'payout_create',
             ],
             [
                 'id'    => 18,
-                'title' => 'crm_status_create',
+                'title' => 'payout_edit',
             ],
             [
                 'id'    => 19,
-                'title' => 'crm_status_edit',
+                'title' => 'payout_show',
             ],
             [
                 'id'    => 20,
-                'title' => 'crm_status_show',
+                'title' => 'payout_delete',
             ],
             [
                 'id'    => 21,
-                'title' => 'crm_status_delete',
+                'title' => 'payout_access',
             ],
             [
                 'id'    => 22,
-                'title' => 'crm_status_access',
+                'title' => 'member_create',
             ],
             [
                 'id'    => 23,
-                'title' => 'crm_customer_create',
+                'title' => 'member_edit',
             ],
             [
                 'id'    => 24,
-                'title' => 'crm_customer_edit',
+                'title' => 'member_show',
             ],
             [
                 'id'    => 25,
-                'title' => 'crm_customer_show',
+                'title' => 'member_delete',
             ],
             [
                 'id'    => 26,
-                'title' => 'crm_customer_delete',
+                'title' => 'member_access',
             ],
             [
                 'id'    => 27,
-                'title' => 'crm_customer_access',
+                'title' => 'wallet_create',
             ],
             [
                 'id'    => 28,
-                'title' => 'crm_note_create',
+                'title' => 'wallet_edit',
             ],
             [
                 'id'    => 29,
-                'title' => 'crm_note_edit',
+                'title' => 'wallet_show',
             ],
             [
                 'id'    => 30,
-                'title' => 'crm_note_show',
+                'title' => 'wallet_delete',
             ],
             [
                 'id'    => 31,
-                'title' => 'crm_note_delete',
+                'title' => 'wallet_access',
             ],
             [
                 'id'    => 32,
-                'title' => 'crm_note_access',
-            ],
-            [
-                'id'    => 33,
-                'title' => 'crm_document_create',
-            ],
-            [
-                'id'    => 34,
-                'title' => 'crm_document_edit',
-            ],
-            [
-                'id'    => 35,
-                'title' => 'crm_document_show',
-            ],
-            [
-                'id'    => 36,
-                'title' => 'crm_document_delete',
-            ],
-            [
-                'id'    => 37,
-                'title' => 'crm_document_access',
-            ],
-            [
-                'id'    => 38,
-                'title' => 'expense_management_access',
-            ],
-            [
-                'id'    => 39,
-                'title' => 'expense_category_create',
-            ],
-            [
-                'id'    => 40,
-                'title' => 'expense_category_edit',
-            ],
-            [
-                'id'    => 41,
-                'title' => 'expense_category_show',
-            ],
-            [
-                'id'    => 42,
-                'title' => 'expense_category_delete',
-            ],
-            [
-                'id'    => 43,
-                'title' => 'expense_category_access',
-            ],
-            [
-                'id'    => 44,
-                'title' => 'income_category_create',
-            ],
-            [
-                'id'    => 45,
-                'title' => 'income_category_edit',
-            ],
-            [
-                'id'    => 46,
-                'title' => 'income_category_show',
-            ],
-            [
-                'id'    => 47,
-                'title' => 'income_category_delete',
-            ],
-            [
-                'id'    => 48,
-                'title' => 'income_category_access',
-            ],
-            [
-                'id'    => 49,
-                'title' => 'expense_create',
-            ],
-            [
-                'id'    => 50,
-                'title' => 'expense_edit',
-            ],
-            [
-                'id'    => 51,
-                'title' => 'expense_show',
-            ],
-            [
-                'id'    => 52,
-                'title' => 'expense_delete',
-            ],
-            [
-                'id'    => 53,
-                'title' => 'expense_access',
-            ],
-            [
-                'id'    => 54,
-                'title' => 'income_create',
-            ],
-            [
-                'id'    => 55,
-                'title' => 'income_edit',
-            ],
-            [
-                'id'    => 56,
-                'title' => 'income_show',
-            ],
-            [
-                'id'    => 57,
-                'title' => 'income_delete',
-            ],
-            [
-                'id'    => 58,
-                'title' => 'income_access',
-            ],
-            [
-                'id'    => 59,
-                'title' => 'expense_report_create',
-            ],
-            [
-                'id'    => 60,
-                'title' => 'expense_report_edit',
-            ],
-            [
-                'id'    => 61,
-                'title' => 'expense_report_show',
-            ],
-            [
-                'id'    => 62,
-                'title' => 'expense_report_delete',
-            ],
-            [
-                'id'    => 63,
-                'title' => 'expense_report_access',
-            ],
-            [
-                'id'    => 64,
-                'title' => 'service_create',
-            ],
-            [
-                'id'    => 65,
-                'title' => 'service_edit',
-            ],
-            [
-                'id'    => 66,
-                'title' => 'service_show',
-            ],
-            [
-                'id'    => 67,
-                'title' => 'service_delete',
-            ],
-            [
-                'id'    => 68,
-                'title' => 'service_access',
-            ],
-            [
-                'id'    => 69,
-                'title' => 'employee_create',
-            ],
-            [
-                'id'    => 70,
-                'title' => 'employee_edit',
-            ],
-            [
-                'id'    => 71,
-                'title' => 'employee_show',
-            ],
-            [
-                'id'    => 72,
-                'title' => 'employee_delete',
-            ],
-            [
-                'id'    => 73,
-                'title' => 'employee_access',
-            ],
-            [
-                'id'    => 74,
-                'title' => 'client_create',
-            ],
-            [
-                'id'    => 75,
-                'title' => 'client_edit',
-            ],
-            [
-                'id'    => 76,
-                'title' => 'client_show',
-            ],
-            [
-                'id'    => 77,
-                'title' => 'client_delete',
-            ],
-            [
-                'id'    => 78,
-                'title' => 'client_access',
-            ],
-            [
-                'id'    => 79,
-                'title' => 'appoitment_create',
-            ],
-            [
-                'id'    => 80,
-                'title' => 'appoitment_edit',
-            ],
-            [
-                'id'    => 81,
-                'title' => 'appoitment_show',
-            ],
-            [
-                'id'    => 82,
-                'title' => 'appoitment_delete',
-            ],
-            [
-                'id'    => 83,
-                'title' => 'appoitment_access',
-            ],
-            [
-                'id'    => 84,
                 'title' => 'profile_password_edit',
             ],
         ];
