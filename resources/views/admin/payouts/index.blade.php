@@ -64,6 +64,10 @@
                                 {{ $payout->commission ?? '' }}
                             </td>
                             <td>
+                            <a href="{{ route('admin.payouts.complete', $payout->id) }}"
+                                class="btn btn-xs btn-primary">Completed</a>
+                            <a href="{{ route('admin.payouts.commission', $payout->id) }}"
+                                 class="btn btn-xs btn-secondary">Commission</a>
                                 @can('payout_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.payouts.show', $payout->id) }}">
                                         {{ trans('global.view') }}

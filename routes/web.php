@@ -28,7 +28,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Payouts
     Route::delete('payouts/destroy', 'PayoutsController@massDestroy')->name('payouts.massDestroy');
     Route::resource('payouts', 'PayoutsController');
-
+    Route::get('payouts/{payout_id}/complete', 'PayoutsController@complete')->name('payouts.complete');
+    Route::get('payouts/{payout_id}/commission', 'PayoutsController@commission')->name('payouts.commission');
+    
     // Members
     Route::delete('members/destroy', 'MembersController@massDestroy')->name('members.massDestroy');
     Route::resource('members', 'MembersController');

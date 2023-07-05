@@ -66,6 +66,36 @@ class PayoutsController extends Controller
         return back();
     }
 
+    public function complete($payout_id)
+    {
+        abort_if(Gate::denies('payout_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $payout = Payout::findOrFail($payout_id);
+
+        $payout->update(['completed_at' => now()]);
+
+        return back();
+    }
+
+    public function commission($payout_id)
+    {
+        abort_if(Gate::denies('payout_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+    
+        $payout = Payout::findOrFail($payout_id);
+        $originalAmount = $payout->amount;
+        $commissionPercentage = 1; // 1% discount
+    
+        // Calculate the discounted price
+        $commissionAmount = $originalAmount - ($originalAmount * ($commissionPercentage / 100));
+    
+        // Update the discounted price in the database
+        $payout->update([
+            'commission' => $commissionAmount
+        ]);
+    
+        return back();
+    }
+    
     public function massDestroy(MassDestroyPayoutRequest $request)
     {
         $payouts = Payout::find(request('ids'));
