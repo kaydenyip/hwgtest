@@ -15,7 +15,7 @@ class Payout extends Model
     public $table = 'payouts';
 
     protected $dates = [
-        'date',
+        'completed_at',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -24,7 +24,8 @@ class Payout extends Model
     protected $fillable = [
         'name',
         'amount',
-        'date',
+        'completed_at',
+        'commission',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -35,13 +36,13 @@ class Payout extends Model
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function getDateAttribute($value)
+    public function getCompletedAtAttribute($value)
     {
         return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
     }
 
-    public function setDateAttribute($value)
+    public function setCompletedAtAttribute($value)
     {
-        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
+        $this->attributes['completed_at'] = $value ? Carbon::createFromFormat(config('panel.date_format') . ' ' . config('panel.time_format'), $value)->format('Y-m-d H:i:s') : null;
     }
 }

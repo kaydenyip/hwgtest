@@ -3,13 +3,13 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.payout.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.member.title') }}
     </div>
 
     <div class="card-body">
         <div class="form-group">
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.payouts.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.members.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>
@@ -17,48 +17,40 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.payout.fields.id') }}
+                            {{ trans('cruds.member.fields.id') }}
                         </th>
                         <td>
-                            {{ $payout->id }}
+                            {{ $member->id }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.payout.fields.name') }}
+                            {{ trans('cruds.member.fields.user') }}
                         </th>
                         <td>
-                            {{ $payout->name }}
+                            {{ $member->user }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.payout.fields.amount') }}
+                            {{ trans('cruds.member.fields.email') }}
                         </th>
                         <td>
-                            {{ $payout->amount }}
+                            {{ $member->email }}
                         </td>
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.payout.fields.completed_at') }}
+                            {{ trans('cruds.member.fields.address') }}
                         </th>
                         <td>
-                            {{ $payout->completed_at }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.payout.fields.commission') }}
-                        </th>
-                        <td>
-                            {{ $payout->commission }}
+                            {{ $member->address }}
                         </td>
                     </tr>
                 </tbody>
             </table>
             <div class="form-group">
-                <a class="btn btn-default" href="{{ route('admin.payouts.index') }}">
+                <a class="btn btn-default" href="{{ route('admin.members.index') }}">
                     {{ trans('global.back_to_list') }}
                 </a>
             </div>

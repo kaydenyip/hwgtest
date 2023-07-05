@@ -1,41 +1,35 @@
 @extends('layouts.admin')
 @section('content')
-@can('payout_create')
+@can('wallet_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.payouts.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.payout.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.wallets.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.wallet.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.payout.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.wallet.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Payout">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-Wallet">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.payout.fields.id') }}
+                            {{ trans('cruds.wallet.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.payout.fields.name') }}
+                            {{ trans('cruds.wallet.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.payout.fields.amount') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.payout.fields.completed_at') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.payout.fields.commission') }}
+                            {{ trans('cruds.wallet.fields.amount') }}
                         </th>
                         <th>
                             &nbsp;
@@ -43,41 +37,35 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($payouts as $key => $payout)
-                        <tr data-entry-id="{{ $payout->id }}">
+                    @foreach($wallets as $key => $wallet)
+                        <tr data-entry-id="{{ $wallet->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $payout->id ?? '' }}
+                                {{ $wallet->id ?? '' }}
                             </td>
                             <td>
-                                {{ $payout->name ?? '' }}
+                                {{ $wallet->email ?? '' }}
                             </td>
                             <td>
-                                {{ $payout->amount ?? '' }}
+                                {{ $wallet->amount ?? '' }}
                             </td>
                             <td>
-                                {{ $payout->completed_at ?? '' }}
-                            </td>
-                            <td>
-                                {{ $payout->commission ?? '' }}
-                            </td>
-                            <td>
-                                @can('payout_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.payouts.show', $payout->id) }}">
+                                @can('wallet_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.wallets.show', $wallet->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('payout_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.payouts.edit', $payout->id) }}">
+                                @can('wallet_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.wallets.edit', $wallet->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('payout_delete')
-                                    <form action="{{ route('admin.payouts.destroy', $payout->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('wallet_delete')
+                                    <form action="{{ route('admin.wallets.destroy', $wallet->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -102,11 +90,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('payout_delete')
+@can('wallet_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.payouts.massDestroy') }}",
+    url: "{{ route('admin.wallets.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -137,7 +125,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Payout:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-Wallet:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
