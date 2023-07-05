@@ -21,7 +21,7 @@ class UpdatePayoutRequest extends FormRequest
                 'string',
                 'nullable',
             ],
-            'date' => [
+            'completed_at' => [
                 'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
                 'nullable',
             ],

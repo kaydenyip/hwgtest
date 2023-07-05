@@ -1,41 +1,38 @@
 @extends('layouts.admin')
 @section('content')
-@can('payout_create')
+@can('member_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.payouts.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.payout.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.members.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.member.title_singular') }}
             </a>
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.payout.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.member.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Payout">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-Member">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.payout.fields.id') }}
+                            {{ trans('cruds.member.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.payout.fields.name') }}
+                            {{ trans('cruds.member.fields.user') }}
                         </th>
                         <th>
-                            {{ trans('cruds.payout.fields.amount') }}
+                            {{ trans('cruds.member.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.payout.fields.completed_at') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.payout.fields.commission') }}
+                            {{ trans('cruds.member.fields.address') }}
                         </th>
                         <th>
                             &nbsp;
@@ -43,41 +40,38 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($payouts as $key => $payout)
-                        <tr data-entry-id="{{ $payout->id }}">
+                    @foreach($members as $key => $member)
+                        <tr data-entry-id="{{ $member->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $payout->id ?? '' }}
+                                {{ $member->id ?? '' }}
                             </td>
                             <td>
-                                {{ $payout->name ?? '' }}
+                                {{ $member->user ?? '' }}
                             </td>
                             <td>
-                                {{ $payout->amount ?? '' }}
+                                {{ $member->email ?? '' }}
                             </td>
                             <td>
-                                {{ $payout->completed_at ?? '' }}
+                                {{ $member->address ?? '' }}
                             </td>
                             <td>
-                                {{ $payout->commission ?? '' }}
-                            </td>
-                            <td>
-                                @can('payout_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.payouts.show', $payout->id) }}">
+                                @can('member_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.members.show', $member->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('payout_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.payouts.edit', $payout->id) }}">
+                                @can('member_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.members.edit', $member->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('payout_delete')
-                                    <form action="{{ route('admin.payouts.destroy', $payout->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('member_delete')
+                                    <form action="{{ route('admin.members.destroy', $member->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -102,11 +96,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('payout_delete')
+@can('member_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.payouts.massDestroy') }}",
+    url: "{{ route('admin.members.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -137,7 +131,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Payout:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-Member:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
